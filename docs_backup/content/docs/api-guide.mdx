@@ -1,0 +1,95 @@
+# API Guide
+
+## Overview
+This document provides an overview of the main API functions and classes available in Sketchlab. Each function and class is documented with a description and code examples.
+
+## Editor Component
+The `Editor` component embeds the Monaco Editor and provides TypeScript support, linting, and IntelliSense.
+
+### Props
+- `value: string` - The code to be displayed in the editor.
+- `onChange: (value: string) => void` - Callback function to handle code changes.
+
+### Example
+```tsx
+import React, { useState } from 'react';
+import Editor from './components/Editor';
+
+const App: React.FC = () => {
+  const [code, setCode] = useState<string>('');
+
+  return (
+    <Editor value={code} onChange={setCode} />
+  );
+};
+
+export default App;
+```
+
+## Preview Component
+The `Preview` component creates a sandboxed iframe for the p5.js context and implements auto-reload on file save.
+
+### Props
+- `code: string` - The code to be executed in the p5.js context.
+
+### Example
+```tsx
+import React, { useState } from 'react';
+import Preview from './components/Preview';
+
+const App: React.FC = () => {
+  const [code, setCode] = useState<string>('');
+
+  return (
+    <div>
+      <textarea value={code} onChange={(e) => setCode(e.target.value)} />
+      <Preview code={code} />
+    </div>
+  );
+};
+
+export default App;
+```
+
+## Plugin SDK
+The Plugin SDK allows you to create and manage plugins for Sketchlab. Plugins can extend the functionality of the IDE by adding new features, tools, and workflows.
+
+### Plugin Lifecycle Hooks
+- `onLoad: () => void` - Called when the plugin is loaded.
+- `onSave: () => void` - Called when the plugin is saved.
+- `onBuild: () => void` - Called when the plugin is built.
+
+### Example Plugin
+```tsx
+import React from 'react';
+
+interface PluginProps {
+  settings: any;
+  onLoad: () => void;
+  onSave: () => void;
+  onBuild: () => void;
+}
+
+const ExamplePlugin: React.FC<PluginProps> = ({ settings, onLoad, onSave, onBuild }) => {
+  React.useEffect(() => {
+    onLoad();
+    return () => {
+      onSave();
+    };
+  }, [onLoad, onSave]);
+
+  const handleBuild = () => {
+    onBuild();
+  };
+
+  return (
+    <div>
+      <h2>Example Plugin</h2>
+      <div>{settings}</div>
+      <button onClick={handleBuild}>Build</button>
+    </div>
+  );
+};
+
+export default ExamplePlugin;
+```

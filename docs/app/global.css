@@ -120,3 +120,70 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom theme variables for colors and radii */
+:root {
+  --color-primary-light: oklch(0.9 0.1 0);
+  --color-primary-dark: oklch(0.2 0.1 0);
+  --color-secondary-light: oklch(0.95 0.05 0);
+  --color-secondary-dark: oklch(0.25 0.05 0);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+/* Typography styles for consistent font sizes, line heights, and font weights */
+:root {
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-sm: 0.875rem;
+  --line-height-base: 1.5;
+  --line-height-lg: 1.75;
+  --line-height-sm: 1.25;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+}
+
+body {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-weight: var(--font-weight-normal);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+}
+
+h1 {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
+}
+
+p {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+/* CSS media queries for responsive typography */
+@media (max-width: 768px) {
+  :root {
+    --font-size-base: 0.875rem;
+    --font-size-lg: 1rem;
+    --font-size-sm: 0.75rem;
+    --line-height-base: 1.25;
+    --line-height-lg: 1.5;
+    --line-height-sm: 1.15;
+  }
+}
+
+/* Import tw-animate-css library for smooth transitions and animations */
+@import "tw-animate-css";
+
+/* Dark mode color variables */
+.dark {
+  --color-primary-light: oklch(0.2 0.1 0);
+  --color-primary-dark: oklch(0.9 0.1 0);
+  --color-secondary-light: oklch(0.25 0.05 0);
+  --color-secondary-dark: oklch(0.95 0.05 0);
+}

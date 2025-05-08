@@ -68,6 +68,31 @@ The `Preview` component creates a sandboxed iframe for the p5.js context and imp
 #### Props
 - `code: string` - The code to be executed in the p5.js context.
 
+### SVG Generation
+The `Preview` component now supports SVG generation using `p5-svg.js`. You can export the current sketch as an SVG file.
+
+### Example
+```tsx
+import React, { useState } from 'react';
+import Preview from './components/Preview';
+
+const App: React.FC = () => {
+  const [code, setCode] = useState<string>('');
+
+  return (
+    <div>
+      <textarea value={code} onChange={(e) => setCode(e.target.value)} />
+      <Preview code={code} />
+      <button onClick={() => document.dispatchEvent(new Event('export-svg'))}>
+        Export SVG
+      </button>
+    </div>
+  );
+};
+
+export default App;
+```
+
 ## Plugin SDK
 ### Creating a Plugin
 1. Create a new directory under `plugins/`.

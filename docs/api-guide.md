@@ -51,6 +51,31 @@ const App: React.FC = () => {
 export default App;
 ```
 
+### SVG Generation
+The `Preview` component now supports SVG generation using `p5-svg.js`. You can export the current sketch as an SVG file.
+
+### Example
+```tsx
+import React, { useState } from 'react';
+import Preview from './components/Preview';
+
+const App: React.FC = () => {
+  const [code, setCode] = useState<string>('');
+
+  return (
+    <div>
+      <textarea value={code} onChange={(e) => setCode(e.target.value)} />
+      <Preview code={code} />
+      <button onClick={() => document.dispatchEvent(new Event('export-svg'))}>
+        Export SVG
+      </button>
+    </div>
+  );
+};
+
+export default App;
+```
+
 ## Plugin SDK
 The Plugin SDK allows you to create and manage plugins for Sketchlab. Plugins can extend the functionality of the IDE by adding new features, tools, and workflows.
 

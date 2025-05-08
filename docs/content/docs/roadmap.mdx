@@ -1,0 +1,44 @@
+---
+title: "Roadmap"
+description: "Future features and enhancements planned for Sketchlab."
+---
+
+# Roadmap
+
+## Future Features
+
+### AI-Powered Code Completion
+- Integrate AI-powered code completion to provide code suggestions, refactoring tools, and error detection and correction.
+- Configure the AI code completion in `src/components/Editor.tsx` and enhance IntelliSense features.
+
+### AI-Driven Code Refactoring
+- Implement AI-driven code refactoring tools to help users improve the structure and readability of their code.
+- Integrate the AI-powered refactoring with the existing IntelliSense features in the Monaco Editor.
+
+### AI-Powered Error Detection and Correction
+- Use AI to detect and correct common coding errors in real-time, providing users with instant feedback and suggestions for fixing issues.
+- Add this functionality to the `src/components/Editor.tsx` file.
+
+### AI-Powered Code Analysis
+- Implement advanced code analysis tools to detect potential issues and suggest improvements in real-time, helping users write cleaner and more efficient code.
+- Integrate this feature into the `src/components/Editor.tsx` file.
+
+### AI-Powered Plugin Recommendations
+- Provide AI-powered plugin recommendations based on the user's coding patterns and preferences.
+- Integrate this feature into the `src/components/PluginManager.tsx` file.
+
+## Other Planned Features
+
+### Enhanced User Interface and Experience
+- **Dark mode and theming support**: Implement a theme switcher in the settings panel to allow users to toggle between light and dark modes. Update the Monaco Editor theme and apply global styles using CSS variables. Persist user preferences in local storage to ensure the selected theme is applied on subsequent visits.
+- **Improved plugin manager UI**: Enhance the plugin manager UI to display detailed information about each plugin, such as version, author, and description. Add search and filter options, plugin ratings and reviews, and streamlined installation processes.
+- **Welcome tour and onboarding**: Implement a welcome tour to guide new users through the first-run experience. Provide detailed documentation and examples for the plugin API to help developers create powerful plugins.
+
+### Advanced Code Authoring and Error Handling
+- **Enhanced error overlay**: Provide detailed error messages, including stack traces and suggestions for fixing common issues. Implement error categorization and error navigation to help users quickly identify and resolve errors.
+- **Centralized error logging system**: Create an error logging service to record all errors encountered during the development process. Integrate error logging in the main and renderer processes, and store error logs locally or send them to a server for further analysis.
+
+### Performance Optimization and Seamless Updates
+- **Efficient iframe management**: Implement a debounce mechanism to limit the frequency of iframe reloads on file save events. Load iframe content only when it becomes visible to the user and optimize the content loaded in the iframe.
+- **Auto-updates for the app**: Add the `electron-updater` dependency and configure `electron-builder` for auto-updates. Implement update logic in the main process and handle update events in the renderer process. Set up GitHub Actions for release and thoroughly test the auto-update functionality.
+- **Optimized documentation site**: Ensure the documentation site follows Fumadocs standards, including front matter, consistent theming, dark mode support, and improved content organization. Integrate interactive code playgrounds, video tutorials, and live examples to make the content more engaging.

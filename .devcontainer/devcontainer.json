@@ -2,6 +2,6 @@
   "tasks": {
     "test": "pnpm test",
     "build": "pnpm build",
-    "launch": "pnpm start"
+    "launch": "pnpm dev"
   }
 }
